@@ -20,9 +20,11 @@ Click on `Add` and choose `moveit_ros_visualization/MotionPlanning`.
 
 ### TLDR
 1. Have a URDF (no transmissions / gazebo plugin required)
-2. Open the MoveIt! Setup Helper (`roslaunch moveit_setup_assistant setup_assistant.launch`)
-3. Set up your MoveIt! package in the setup assistant
-4. 
+2. Create a package for the robot description (`catkin_create_pkg arm_description std_msgs rospy roscpp`)
+3. Open the MoveIt! Setup Helper (`roslaunch moveit_setup_assistant setup_assistant.launch`)
+4. Set up your MoveIt! package in the setup assistant (find details below)
+5. In the `ros_controllers.launch` add the `joint_state_controller` to the other controllers
+6. In the same file add the `robot_state_publisher (`<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />`)
 
 ## The long version
 
@@ -108,7 +110,18 @@ You will then later get this error as there is no geometry defined for the `base
 You can ignore it.
 `[ERROR] [1605470815.062129407]: Could not parse visual element for Link [base_link]`
 
-### MoveIt! Setup Helper
+### Create a package with the robot description
+
+In a workspace create a new package.
+Go into the `src` folder an run `catkin_create_pkg arm_description std_msgs rospy roscpp`.
+Create a folder `urdf` in the package and paste your urdf file there.
+
+### MoveIt! Setup Assistant
+
+Run the following command:
+`roslaunch moveit_setup_assistant setup_assistant.launch`
+
+In the different section of the setup assistant do the following:
 
 Start: Load your URDF file.
 
