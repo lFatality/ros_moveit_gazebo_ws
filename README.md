@@ -129,7 +129,8 @@ Load your URDF file.
 #### Self-collisions
 Click `Generate Collision Matrix`
 
-#### Virtual Joints: If you want you can add an attachment point for the arm.  
+#### Virtual Joints:
+If you want you can add an attachment point for the arm.  
 This could be e.g. to attach the robot to the ground or a mobile base in gazebo.
 
 #### Planning groups
