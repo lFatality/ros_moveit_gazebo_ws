@@ -118,7 +118,9 @@ Create a folder `urdf` in the package and paste your urdf file there.
 
 ### MoveIt! Setup Assistant
 
-Run the following command:  
+Source your workspace (`source devel/setup.bash`)!
+
+Then run the following command:  
 `roslaunch moveit_setup_assistant setup_assistant.launch`
 
 In the different section of the setup assistant do the following:
@@ -131,7 +133,7 @@ Click `Generate Collision Matrix`
 
 #### Virtual Joints:
 If you want you can add an attachment point for the arm.  
-This could be e.g. to attach the robot to the ground or a mobile base in gazebo.
+This could be e.g. to attach the robot to the ground or a mobile base in gazebo.  
 
 #### Planning groups
 Group of the arm:  
@@ -182,7 +184,7 @@ Go to your URDF and overwrite it with the contents from your clipboard.
 #### Author
 Insert your name and email.
 
-#### Generate package
+#### Configuration files
 Choose a path to an empty folder in your workspace in which the package shall be created.
 
 Click `Generate package`. It will give a warning that there are no virtual joints, click OK.
