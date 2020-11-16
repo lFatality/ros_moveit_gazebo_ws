@@ -24,7 +24,7 @@ Click on `Add` and choose `moveit_ros_visualization/MotionPlanning`.
 3. Open the MoveIt! Setup Helper (`roslaunch moveit_setup_assistant setup_assistant.launch`)
 4. Set up your MoveIt! package in the setup assistant (find details below)
 5. In the `ros_controllers.launch` add the `joint_state_controller` to the other controllers
-6. In the same file add the `robot_state_publisher (`<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />`)
+6. In the same file add the `robot_state_publisher` (`<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />`)
 
 ## The long version
 
