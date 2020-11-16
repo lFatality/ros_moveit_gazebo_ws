@@ -123,14 +123,16 @@ Run the following command:
 
 In the different section of the setup assistant do the following:
 
-Start: Load your URDF file.
+#### Start
+Load your URDF file.
 
-Self-collisions: Click `Generate Collision Matrix`
+#### Self-collisions
+Click `Generate Collision Matrix`
 
-Virtual Joints: If you want you can add an attachment point for the arm.  
+#### Virtual Joints: If you want you can add an attachment point for the arm.  
 This could be e.g. to attach the robot to the ground or a mobile base in gazebo.
 
-Planning groups:  
+#### Planning groups
 Group of the arm:  
 
 - Click `Add group`
@@ -151,19 +153,19 @@ Group of the gripper:
 - Select the links of the end-effector
 - Click save
 
-Robot Poses:  
+#### Robot Poses
 Click `Add Pose`.  
 Check that the robot joints are moving as you expect.  
 Generate at least one pose, otherwise errors might occur later.
 
-End effectors:  
+#### End effectors
 Click `Add end-effector`.  
 Give it a name, select the group name you've chosen for the end-effector.  
 The parent link is the last link of the arm, the one the end-effector is attached to.
 
 Passive joints: Can be ignored if your robot has no not-actuated joints.
 
-ROS Control:  
+#### ROS Control
 Auto-generate the controllers with the button,  
 then edit them and change them to a `JointTrajectoryController`.  
 There are multiple ones, choose the one that makes the most sense.  
@@ -172,14 +174,14 @@ maybe you want to use an `effort_controller` instead.
 Once you did that, click the auto-generate button again and you will see  
 additional `FollowJointTrajectory` controllers, one for the gripper and one for the arm.
 
-Simulation:  
+#### Simulation
 Click `Generate URDF` and copy the contents into your clipboard.  
 Go to your URDF and overwrite it with the contents from your clipboard.
 
-Author:  
+#### Author
 Insert your name and email.
 
-Generate package:  
+#### Generate package
 Choose a path to an empty folder in your workspace in which the package shall be created.
 
 Click `Generate package`. It will give a warning that there are no virtual joints, click OK.
