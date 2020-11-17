@@ -301,10 +301,28 @@ you need
 <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find your_package_name)/urdf/your_urdf_file.urdf.xacro'" />
 ```
 
-Problem 5:  
+Problem 5:
+When running `move_group.launch` you get:
+`[ WARN] [1605612789.197556838]: No kinematics plugins defined. Fill and load kinematics.yaml!`
+
+Solution 5:
+You probably forget to select a kinematics plugin in the setup assistant.
+In your `kinematics.yaml` you can fill it in still. The structure looks like this:
+```
+arm:
+  kinematics_solver: kdl_kinematics_plugin/KDLKinematicsPlugin
+  kinematics_solver_search_resolution: 0.005
+  kinematics_solver_timeout: 0.005
+gripper:
+  kinematics_solver: kdl_kinematics_plugin/KDLKinematicsPlugin
+  kinematics_solver_search_resolution: 0.005
+  kinematics_solver_timeout: 0.005
+```
+
+Problem 6:  
 The marker with which you can normally move the robot end effector does not appear.
 
-Solution 5:  
+Solution 6:  
 The marker should be there, it's probably just too small to see.  
 Go into `Planning Request -> Interactive Marker Size` and increase it.
 
