@@ -25,6 +25,7 @@ Click on `Add` and choose `moveit_ros_visualization/MotionPlanning`.
 4. Set up your MoveIt! package in the setup assistant (find details below)
 5. In the `ros_controllers.launch` add the `joint_state_controller` to the other controllers
 6. In the same file add the `robot_state_publisher` (`<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />`)
+7. If you are using a xacro file: In your gazebo.launch, change the parameter loading of the `robot_description` to `<param name="robot_description" command="$(find xacro)/xacro --inorder '$(find your_package_name)/urdf/your_urdf_file.urdf.xacro'" />`
 
 ## The long version
 
@@ -284,10 +285,26 @@ You can now go into `Planning` and choose one of the poses you've specified earl
 Then click on `Plan` and then `Execute`. You will see how the manipulator moves both  
 in Rviz and in Gazebo.
 
-Problem 4:  
+Problem 4:
+After running `gazebo.launch` there is no model even though there is no error message.
+
+Solution 4:
+Check the way you are loading the `robot_description` parameter.
+If you are using a xacro file you have to adjust it.
+Instead of 
+```
+<arg name="urdf_path" default="$(find your_package_name)/urdf/your_urdf_file.urdf.xacro"/>
+<param name="robot_description" textfile="$(arg urdf_path)" />
+```
+you need
+```
+<param name="robot_description" command="$(find xacro)/xacro --inorder '$(find your_package_name)/urdf/your_urdf_file.urdf.xacro'" />
+```
+
+Problem 5:  
 The marker with which you can normally move the robot end effector does not appear.
 
-Solution 4:  
+Solution 5:  
 The marker should be there, it's probably just too small to see.  
 Go into `Planning Request -> Interactive Marker Size` and increase it.
 
