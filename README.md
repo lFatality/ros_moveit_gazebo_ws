@@ -6,7 +6,7 @@ Repository with an example how to use Gazebo and MoveIt! to control a manipulato
 Based on this tutorial: https://www.youtube.com/watch?v=O7nBa7mnfW4
 
 This Readme describes the different steps and principles that go into simulating a Robotic Arm defined in a URDF in Gazebo
-and also moving it around using MoveIt!. It will also explain how to attach the arm to a mobile base.
+and also moving it around using MoveIt!.
 
 ### How to start
 ```
@@ -325,9 +325,4 @@ The marker with which you can normally move the robot end effector does not appe
 Solution 6:  
 The marker should be there, it's probably just too small to see.  
 Go into `Planning Request -> Interactive Marker Size` and increase it.
-
-### Mobile Base
-
-Add Virtual Joint in the MoveIt! setup assistant.  
-Choose the link you want to attach. This doesn't necessarily need to be the first link.
 
