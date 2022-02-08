@@ -331,6 +331,7 @@ My robot is very unstable and jumping around or it breaks and all the parts snap
 
 Solution 7:  
 You might have too high PID values in your `controllers.yaml`. Try setting them to a low value and see if that helps.  
+Remember that too low values will make the robot unable to move though. So you have to find a good balance.
 
 Another reason can be that the inertia values of your parts are incorrect. You can approximate them using these matrices here: https://en.wikipedia.org/wiki/List_of_moments_of_inertia#List_of_3D_inertia_tensors  
 Then you fill them into your URDF in the <inertia> tag. Because inertia tables are symmetric, there will be only 6 values instead of 9.  
