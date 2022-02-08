@@ -238,29 +238,29 @@ It's not really a nice solution, maybe there is a better way?
 gazebo_ros_control:   
   pid_gains:
     joint1:
-      p: 100.0
-      i: 1 
-      d: 1
+      p: 5.0
+      i: 1.0
+      d: 1.0
     joint2:
-      p: 100.0
-      i: 1 
-      d: 1
+      p: 5.0
+      i: 1.0
+      d: 1.0
     joint3:
-      p: 100.0
-      i: 1 
-      d: 1
+      p: 5.0
+      i: 1.0
+      d: 1.0
     joint4:
-      p: 100.0
-      i: 1 
-      d: 1
+      p: 5.0
+      i: 1.0 
+      d: 1.0
     joint5:
-      p: 100.0
-      i: 1 
-      d: 1
+      p: 5.0
+      i: 1.0 
+      d: 1.0
     joint6:
-      p: 100.0
-      i: 1 
-      d: 1
+      p: 5.0
+      i: 1.0 
+      d: 1.0
 ```
 
 Problem 3:
@@ -326,3 +326,12 @@ Solution 6:
 The marker should be there, it's probably just too small to see.  
 Go into `Planning Request -> Interactive Marker Size` and increase it.
 
+Problem 7:  
+My robot is very unstable and jumping around or it breaks and all the parts snap into each other or it disappears completely.
+
+Solution 7:  
+You might have too high PID values in your `controllers.yaml`. Try setting them to a low value and see if that helps.  
+
+Another reason can be that the inertia values of your parts are incorrect. You can approximate them using these matrices here: https://en.wikipedia.org/wiki/List_of_moments_of_inertia#List_of_3D_inertia_tensors  
+Then you fill them into your URDF in the <inertia> tag. Because inertia tables are symmetric, there will be only 6 values instead of 9.  
+Also be sure to adjust the <mass> in your URDF.
